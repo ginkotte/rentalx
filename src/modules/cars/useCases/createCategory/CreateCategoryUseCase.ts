@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { inject, injectable } from "tsyringe";
 
+import { AppError } from "../../../../errors/AppError";
 import { ICategoriesRespository } from "../../repositories/ICategoriesRepository";
 
 interface IRequest {
@@ -21,7 +22,7 @@ class CreateCategoryUseCase {
     );
 
     if (categoryAlredyExists) {
-      throw new Error("Category alredy exists!");
+      throw new AppError("Category alredy exists!");
     }
 
     this.categoriesRepository.create({ name, description });
