@@ -1,11 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { Repository, getRepository } from "typeorm";
 
-import { Category } from "../../entities/Category";
 import {
   ICategoriesRespository,
   ICreateCategoryDTO,
-} from "../ICategoriesRepository";
+} from "../../../repositories/ICategoriesRepository";
+import { Category } from "../entities/Category";
 
 class CategoriesRepository implements ICategoriesRespository {
   private repository: Repository<Category>;
